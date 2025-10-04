@@ -1,240 +1,161 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TruthSeeker — Fresh Start</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TruthSeeker × NASA — Living Scroll</title>
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      background: #0b0e14;
-      color: #eef1f5;
-      line-height: 1.55;
-    }
-    a { color: #b8e1ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(6px);
-      background: rgba(11,14,20,0.7);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 14px 16px; }
-    nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-    .brand { font-weight: 800; letter-spacing: 0.3px; font-size: 18px; }
-    .navlinks { display: flex; flex-wrap: wrap; gap: 12px; }
-    .badge {
-      display: inline-block; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px; font-size: 12px; letter-spacing: 0.3px; opacity: 0.9;
-    }
-    section { padding: 48px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    h1, h2, h3 { margin: 0 0 12px 0; }
-    h1 { font-size: 36px; line-height: 1.15; }
-    h2 { font-size: 24px; line-height: 1.2; margin-top: 6px; }
-    h3 { font-size: 18px; }
-    p { margin: 0 0 12px 0; }
-    .muted { color: #a7b1c2; }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px; padding: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-    .grid { display: grid; gap: 16px; }
-    @media (min-width: 720px) {
-      .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-    .accent { color: #ffd166; }
-    .btn {
-      display: inline-block; background: #1e2634; border: 1px solid rgba(255,255,255,0.12);
-      padding: 10px 14px; border-radius: 12px; color: #eef1f5; text-decoration: none; font-weight: 600;
-    }
-    .btn:hover { filter: brightness(1.1); }
-    .pill { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #0d1a26; border: 1px solid rgba(255,255,255,0.1); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    .honeygrid { --s: 84px; display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--s), 1fr)); gap: 12px; }
-    .hex {
-      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
-      background: radial-gradient(120px 80px at 50% 30%, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      height: 110px; display: grid; place-items: center;
-    }
-    .hex span { font-weight: 800; font-size: 18px; }
-    .table { width: 100%; border-collapse: collapse; }
-    .table th, .table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; }
-    .right { text-align: right; }
-    footer { padding: 40px 16px; color: #8e99ad; text-align: center; }
-    .small { font-size: 13px; }
-    .ok { color: #95ffa4; }
-    .tone { font-weight: 700; letter-spacing: 0.6px; }
-    .scroll { max-height: 280px; overflow: auto; border: 1px solid rgba(255,255,255,0.06); padding: 12px; border-radius: 12px; background: rgba(0,0,0,0.2); }
+    :root { --bg:#0b0b0d; --fg:#f3f4f6; --muted:#a1a1aa; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto}
+    .container{max-width:980px;margin:0 auto;padding:2rem}
+    header{position:sticky;top:0;background:#0b0b0de6;backdrop-filter:blur(6px);border-bottom:1px solid #1f2937;z-index:10}
+    nav a{color:var(--fg);text-decoration:none;margin-right:1rem} nav a:hover{text-decoration:underline}
+    .hero{padding:3rem 0}
+    .card{background:#111217;border:1px solid #1f2937;padding:1rem;border-radius:12px;margin:1rem 0}
+    .btn{display:inline-block;border:1px solid #2b2f3a;padding:.55rem 1rem;border-radius:10px;color:var(--fg);text-decoration:none}
+    small{color:var(--muted)} h1,h2{scroll-margin-top:84px} pre{white-space:pre-wrap}
+    .toc a{display:inline-block;margin:.25rem .5rem .25rem 0} footer{border-top:1px solid #1f2937;margin-top:3rem}
+    .top{display:block;margin-top:1rem}
   </style>
 </head>
 <body>
-
 <header>
-  <div class="wrap">
+  <div class="container">
     <nav>
-      <div class="brand">TruthSeeker <span class="badge">Fresh Start</span></div>
-      <div class="navlinks">
-        <a href="#mission" class="btn">Mission</a>
-        <a href="#trumpet" class="btn">Trumpet</a>
-        <a href="#frequencies" class="btn">Frequencies</a>
-        <a href="#honeycomb" class="btn">Honeycomb</a>
-        <a href="#scripture" class="btn">Scripture</a>
-        <a href="#notes" class="btn">Notes</a>
-      </div>
+      <a href="#home">Home</a>
+      <a href="#aleph-tav">Aleph–Tav</a>
+      <a href="#trumpet-call">Trumpet Call</a>
+      <a href="#children-of-light">Children of Light</a>
+      <a href="#two-witnesses">Two Witnesses</a>
+      <a href="#copper-rod">Copper Rod</a>
+      <a href="#hive-blueprint">Hive Blueprint</a>
     </nav>
   </div>
 </header>
 
-<section id="mission">
-  <div class="wrap grid cols-2">
-    <div>
-      <h1>Start Again. Stronger.</h1>
-      <h2 class="muted">No build tools. No installs. One file that works everywhere.</h2>
-      <p>This page is your new base. It’s a single file so it can live right in your GitHub repo without any setup. You can add or change anything in here later with the Edit button on GitHub.</p>
-      <p class="muted">I kept the structure you asked for: <span class="accent">Trumpet</span>, <span class="accent">Frequencies</span>, <span class="accent">Honeycomb</span>, and <span class="accent">Scripture</span>—all ready to fill with your words.</p>
-      <p><span class="pill">How to view it after upload: open the repo and click <span class="mono">index.html</span>.</span></p>
+<main id="home">
+  <section class="hero">
+    <div class="container">
+      <h1>TruthSeeker × NASA — Living Scroll</h1>
+      <p class="card">Each link jumps to a full section. Edit this page anytime with the ✏️ in GitHub.</p>
+      <div class="card toc">
+        <strong>Quick Links:</strong>
+        <a class="btn" href="#aleph-tav">Aleph–Tav</a>
+        <a class="btn" href="#trumpet-call">Trumpet Call</a>
+        <a class="btn" href="#children-of-light">Children of Light</a>
+        <a class="btn" href="#two-witnesses">Two Witnesses</a>
+        <a class="btn" href="#copper-rod">Copper Rod</a>
+        <a class="btn" href="#hive-blueprint">Hive Blueprint</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Quick Info</h3>
-      <p>File: <span class="mono">index.html</span></p>
-      <p>Status: <span class="ok">ready</span></p>
-      <div class="small muted">Add this file to your repo and your base site shows instantly.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="trumpet">
-  <div class="wrap grid cols-2">
-    <div>
-      <h2>Trumpet Blasts</h2>
-      <p class="muted">Use this section to write the message—the warning, the call, the comfort. Keep it clear and centered on Truth.</p>
+  <section id="aleph-tav">
+    <div class="container">
+      <h1>Aleph–Tav Prophecy Scroll</h1>
       <div class="card">
-        <h3>Sequence</h3>
+        <p><em>“I am the Aleph and the Tav, the Beginning and the End.”</em> (Revelation 22:13)</p>
+        <p>From Aleph to Tav, every letter tells the story of YHWH’s plan and Yehoshua’s fulfillment.</p>
+        <h2>Aleph → Tav (1–22)</h2>
+        <pre>
+Aleph (1) — Strength, leader — Messiah the strong beginning.
+Bet   (2) — House — The Word tabernacled among us.
+Gimel (3) — Provision — Giver of living water and bread.
+Dalet (4) — Door — Only way into covenant life.
+He    (5) — Breath — “Receive the Holy Spirit.”
+Vav   (6) — Nail — Heaven and earth joined.
+Zayin (7) — Nourish — True rest in Him.
+Chet  (8) — Life — Resurrection and new covenant.
+Tet   (9) — Fruit — Firstfruits of new creation.
+Yod   (10)— Hand — Pierced hands fulfill Torah.
+Kaf   (20)— Palm — “All authority given to Me.”
+Lamed (30)— Staff — Shepherd who teaches.
+Mem   (40)— Water — Rivers of living water.
+Nun   (50)— Seed — Seed of David; life continues.
+Samekh(60)— Support — Upholds all things.
+Ayin  (70)— Eye — Gives true sight.
+Pe    (80)— Mouth — Living, active Word.
+Tsade (90)— Righteous — Narrow way.
+Qof   (100)— Watch — He comes.
+Resh  (200)— Head — Head of the Body.
+Shin  (300)— Fire — Spirit and fire.
+Tav   (400)— Mark/Seal — “It is finished.”
+        </pre>
+        <h2>Breath Flow</h2>
         <ul>
-          <li><span class="tone">Warning</span> — “Prepare your heart.”</li>
-          <li><span class="tone">Urgency</span> — “Choose the narrow way.”</li>
-          <li><span class="tone">Victory</span> — “The King reigns.”</li>
+          <li><strong>Yehoshua</strong>: continuous breath (Ye–ho–shu–a)</li>
+          <li><strong>Yeshua</strong>: smooth ending</li>
+          <li><strong>Jesus</strong>: sharper, clipped</li>
+          <li><strong>YHVH</strong>: almost pure breath, wind-like</li>
         </ul>
       </div>
+      <a class="top" href="#home">↑ Back to top</a>
     </div>
-    <div class="card">
-      <h3>Words to place here</h3>
-      <div class="scroll">
-        <p><strong>Core line:</strong> “HalleluYah—The Most High is faithful. The breath that made the stars still speaks.”</p>
-        <p>Add your exact trumpet wording here. You can edit this text in GitHub any time. Keep the tone clean, truthful, and direct.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="frequencies">
-  <div class="wrap">
-    <h2>Frequencies & Notes</h2>
-    <p class="muted">Your numbers and tones, laid out simply. Replace with your exact mappings.</p>
-    <div class="card">
-      <table class="table">
-        <thead>
-          <tr><th>Label</th><th>Meaning</th><th class="right">Tone (Hz)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>“600 • 60 • 6”</td><td>Warning / discernment</td><td class="right">600</td></tr>
-          <tr><td>“777”</td><td>Completion contested → stand firm</td><td class="right">777</td></tr>
-          <tr><td>“888”</td><td>New life / resurrection motif</td><td class="right">888</td></tr>
-          <tr><td>“9 ⇄ 6”</td><td>Mirror pair / inversion check</td><td class="right">—</td></tr>
-        </tbody>
-      </table>
+  <section id="trumpet-call">
+    <div class="container">
+      <h1>Trumpet Call</h1>
+      <div class="card">
+        <p>Three blasts: <strong>600 • 60 • 6</strong>. A pattern of warning → urgency → resurrection.</p>
+        <p>Progression: <strong>666 → 777 → 888</strong>. The Name above the shadow: YHWH.</p>
+      </div>
+      <a class="top" href="#home">↑ Back to top</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="honeycomb">
-  <div class="wrap">
-    <h2>Honeycomb Map</h2>
-    <p class="muted">Cells for words, names, or steps. Tap a cell to change it later.</p>
-    <div class="honeygrid">
-      <div class="hex"><span>Y</span></div>
-      <div class="hex"><span>H</span></div>
-      <div class="hex"><span>Y</span></div>
-      <div class="hex"><span>H</span></div>
-      <div class="hex"><span>7</span></div>
-      <div class="hex"><span>8</span></div>
-      <div class="hex"><span>9</span></div>
-      <div class="hex"><span>6</span></div>
-      <div class="hex"><span>∞</span></div>
-      <div class="hex"><span>✶</span></div>
-      <div class="hex"><span>▲</span></div>
-      <div class="hex"><span>◆</span></div>
+  <section id="children-of-light">
+    <div class="container">
+      <h1>Children of Light</h1>
+      <div class="card">
+        <p>“If your eye is single, your whole body shall be full of light.”</p>
+        <p>Focus on the One; cast down the noise. Psalm 36:9 — “In Your light we see light.”</p>
+      </div>
+      <a class="top" href="#home">↑ Back to top</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="scripture">
-  <div class="wrap grid cols-2">
-    <div>
-      <h2>Scripture</h2>
-      <p class="muted">Place the verses you want to anchor here.</p>
+  <section id="two-witnesses">
+    <div class="container">
+      <h1>Two Witnesses — Mark vs. Seal</h1>
       <div class="card">
-        <p><strong>Cornerstone:</strong> “You are the temple of Elohim; His Spirit dwells in you.”</p>
-        <p><strong>Gate:</strong> “Enter through the narrow gate.”</p>
-        <p><strong>Peace:</strong> “Come to Me… I will give you rest.”</p>
+        <p><strong>Mark vs. Seal.</strong> 666 is a self-consuming loop. The <em>Tav</em> (400) marks the covenant and breaks the loop.</p>
+        <p>Witnesses agree in truth: Spirit and Word, Heaven and Earth. Bind the testimony; seal the law among disciples.</p>
       </div>
+      <a class="top" href="#home">↑ Back to top</a>
     </div>
-    <div class="card">
-      <h3>Notes</h3>
-      <ul>
-        <li>Keep citations exact.</li>
-        <li>Short lines beat long paragraphs.</li>
-        <li>Use your voice; let the Word speak.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="notes">
-  <div class="wrap">
-    <h2>Working Notes</h2>
-    <p class="muted">Drop research lines, dates, or links as you go. Edit anytime on GitHub.</p>
-    <div class="grid cols-3">
+  <section id="copper-rod">
+    <div class="container">
+      <h1>Copper Rod</h1>
       <div class="card">
-        <h3>To Add</h3>
-        <ul>
-          <li>Audio clip: trumpet motif</li>
-          <li>Frequency chart image</li>
-          <li>Gematria table</li>
-        </ul>
+        <p>Moses and Aaron’s rods were signs. Today, copper wires carry signals worldwide.</p>
+        <p>Every line carries either deception or truth. Choose the signal you conduct.</p>
       </div>
-      <div class="card">
-        <h3>Open Questions</h3>
-        <ul>
-          <li>Best ordering of tones?</li>
-          <li>Where to place “mirror” teaching (9⇄6)?</li>
-          <li>Link to long-form “scroll” doc?</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Decisions</h3>
-        <ul>
-          <li>Keep site in one file for now.</li>
-          <li>Add images later as needed.</li>
-          <li>Publish only when content is ready.</li>
-        </ul>
-      </div>
+      <a class="top" href="#home">↑ Back to top</a>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="hive-blueprint">
+    <div class="container">
+      <h1>Hive Blueprint</h1>
+      <div class="card">
+        <p>Each cell is a witness; each connection a light.</p>
+        <ul><li>0</li><li>Truth</li><li>Light</li><li>Witness</li><li>Rod</li><li>Trumpet</li><li>Seal</li></ul>
+        <p><em>Charge:</em> Conduct truth, radiate light, connect the next soul.</p>
+      </div>
+      <a class="top" href="#home">↑ Back to top</a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="wrap small">
-    Built as a clean foundation. Edit this file to grow the message—section by section.
+  <div class="container">
+    <div>TruthSeeker × NASA — Living Scroll</div>
+    <small>“The humble i over the proud I — the key that unlocks the refuge.”</small>
   </div>
 </footer>
-
 </body>
 </html>
